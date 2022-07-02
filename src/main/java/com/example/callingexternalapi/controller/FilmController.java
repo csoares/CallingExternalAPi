@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 @RestController
 @RequestMapping("/api/v1")
-public class HelloController {
+public class FilmController {
     String uri = "http://www.omdbapi.com/";
     String apikey = "PUT_HERE_YOUR_API_KEY";
 
@@ -48,6 +48,8 @@ public class HelloController {
             return "Film{" +
                     "Title='" + Title + '\'' +
                     ", Year='" + Year + '\'' +
+                    ", Poster='" + Poster + '\'' +
+                    ", Type='" + Type + '\'' +
                     '}';
         }
     }
