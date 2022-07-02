@@ -13,13 +13,13 @@ import java.util.Arrays;
 @RestController
 @RequestMapping("/api/v1")
 public class FilmController {
-    String uri = "http://www.omdbapi.com/";
-    String apikey = "PUT_HERE_YOUR_API_KEY";
+    String url = "https://www.omdbapi.com/";
+    String apikey = "12b723cf";
 
 
     @GetMapping(path = "film/{title}")
     public ResponseEntity<Film> getFilm(@PathVariable String title) {
-        String finalUri = uri + "?t=" + title + "&apikey=" + apikey;
+        String finalUri = url + "?t=" + title + "&apikey=" + apikey;
         System.out.println("finalUri = " + finalUri);
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Film> result = restTemplate.getForEntity(finalUri, Film.class);
@@ -28,7 +28,7 @@ public class FilmController {
 
     @GetMapping(path = "films/{search}")
     public ResponseEntity<FilmList> getFilms(@PathVariable String search) {
-        String finalUri = uri + "?s=" + search + "&apikey=" + apikey;
+        String finalUri = url + "?s=" + search + "&apikey=" + apikey;
         System.out.println("finalUri = " + finalUri);
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<FilmList> result = restTemplate.getForEntity(finalUri, FilmList.class);
